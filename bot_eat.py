@@ -46,7 +46,6 @@ def func_call(call):
             bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=msg['loc'])
         else:
             functions.func_search_gis(bot, call, point)
-            #functions.func_search_yandex(bot, call, point)
             functions.func_inline_button(bot, call.message.chat.id, msg['call'])
 
 # функция обработки текста
@@ -56,7 +55,6 @@ def func_call(call):
 def func_text(message):
     global point
     point = functions.func_geo_gis(bot, message)
-    #point = functions.func_geo_yandex(bot, message)
     functions.func_inline_button(bot, message.chat.id, msg['start'])
 
 bot.polling()
