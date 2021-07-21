@@ -11,7 +11,7 @@
 
 Отправление локаций пользователю более оптимизировано и содержит меньше сообщений: отправляется одна локация и предоставляется вариант выбора другой, либо же выбора другого ресторана. Также программа работает только с 2gis.
 
-![Функционирование бота](https://drive.google.com/file/d/1Xz9FtrMbS2LBAzc1axEAWjvSILQMmqNj/view?usp=sharing "gif")
+[Видео с функционированием бота](https://drive.google.com/file/d/1--etGkIuulyfVxT6oECJTEflRvLrKDIb/view?usp=sharing)
 
 # Основные моменты в реализации
 
