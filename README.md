@@ -13,7 +13,9 @@
 
 [Видео с функционированием бота](https://drive.google.com/file/d/1--etGkIuulyfVxT6oECJTEflRvLrKDIb/view?usp=sharing)
 
-## Основные файлы программы
+## Основные моменты при реализации
+
+Бот написан на языке python 3, с помощью [Telegram Bot API](https://core.telegram.org/bots/api). Для реализации бота создано три файла.
 
 В файле _bot_eat.py_ расположены основные функции бота, реагирующие на отклики пользователя. 
 
