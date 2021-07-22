@@ -10,7 +10,6 @@ from telebot import types
 # необходимые глобальные переменные
 point = ''                                                  # местоположение на карте (долгота и широта, разделенные ',')
 
-
 print('Бот запущен. Нажмите Ctrl+C для завершения')
 bot = telebot.TeleBot(config.token)
 

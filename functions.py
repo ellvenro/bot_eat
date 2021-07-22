@@ -42,11 +42,13 @@ def func_search_gis(bot, call, point):
         'radius' : '1000'
     }) 
     global result
+    global code
+    global len
     result = json.loads(r.text)
-    func_output(bot, call)
+    func_output_gis(bot, call)
 
-# функция вывода на результатов поиска мест
-def func_output(bot, call):
+# функция вывода на результатов поиска мест при реализации с помощью 2gis
+def func_output_gis(bot, call):
     if result['meta']['code'] == 200:
         global len
         len = result['result']['total']
