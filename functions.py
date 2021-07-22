@@ -41,7 +41,7 @@ def func_search_gis(bot, call, point):
         'fields' :'items.point,items.schedule',
         'radius' : '1000'
     }) 
-    global result
+    global result, cnt
     result = json.loads(r.text)
     cnt = 0
     func_output_gis(bot, call)
