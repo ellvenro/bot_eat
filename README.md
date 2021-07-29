@@ -42,9 +42,9 @@ API-ключи, как и token бота, были помещены в файл 
     - [Документация Geocoder API для 2gis](https://docs.2gis.com/ru/api/search/geocoder/overview).
     - [Альтернатива при использовании сервисов Яндекс: API Геокодера](https://yandex.ru/dev/maps/geocoder/doc/desc/concepts/about.html).
 
-С помощью библиотеки requests отправляются get-запросы с конкретными параметрами, которые указаны в документации, на сайты, результат возврвщаеится в формате объекта json. 
+С помощью библиотеки requests отправляются get-запросы с конкретными параметрами, которые указаны в документации, на сайты, результат возвращается в формате объекта json. 
 
-Пример отправления запроса на сайт config.gis_geo на получение координат объекта query с преобразованием полученного объекта json в список.
+Пример отправления запроса на сайт config.gis_geo на получение координат объекта query с преобразованием полученного объекта json в список:
 ```python
 query = 'СПб метро ' + message.text 
 r = requests.get(url=config.gis_geo, params={
@@ -55,7 +55,7 @@ r = requests.get(url=config.gis_geo, params={
 result = json.loads(r.text)
 ```
 
-Работа с полученными результами производится согласно документации.
+Работа с полученными результатами производится согласно документации.
 ```python
 point = str(result['result']['items'][0]['point']['lon']) + ',' + str(result['result']['items'][0]['point']['lat'])
 ```
@@ -66,7 +66,7 @@ point = str(result['result']['items'][0]['point']['lon']) + ',' + str(result['re
     - [Документация Places API для 2gis](https://docs.2gis.com/ru/api/search/places/overview).
     - [Альтернатива при использовании сервисов Яндекс: API поиска по организациям](https://yandex.ru/dev/maps/geosearch/doc/concepts/about.html).
 
-Пример отправления запроса на сайт config.gis_search на получение объекта call.data, находящегося в радиусе 1000 метров от точки point с последующем преобразованием в список.
+Пример отправления запроса на сайт config.gis_search на получение объекта call.data, находящегося в радиусе 1000 метров от точки point с последующем преобразованием в список:
 ```python
 r = requests.get(url=config.gis_search, params={
     'q' : call.data,
@@ -79,7 +79,9 @@ r = requests.get(url=config.gis_search, params={
 result = json.loads(r.text)
 ```
 
-Результаты, полученные списками из нескольких элементов созможно обрабатывать по разному. Пример отправления полученных результатов пользователю через бота через функцию send_venue с помощью перебора циклом for.
+Результаты, полученные списками из нескольких элементов возможно обрабатывать по разному. Возможно использовать цикл со счетчиком для перебора всех элементов списка.
+
+Пример отправления полученных результатов пользователю через бота через функцию send_venue с помощью перебора циклом for:
 ```python
 for item in result['result']['items']:
     bot.send_venue(call.message.chat.id, item['point']['lat'], item['point']['lon'], item['name'], item['address_name'])
@@ -93,4 +95,3 @@ bot.send_venue(chat_id=call.message.chat.id,
     title=result['result']['items'][cnt]['name'], 
     address=result['result']['items'][cnt]['address_name'])
 ```
-
